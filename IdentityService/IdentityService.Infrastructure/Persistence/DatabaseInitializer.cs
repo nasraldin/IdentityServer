@@ -1,6 +1,7 @@
-﻿using IdentityService.Core.Common.Interfaces;
+﻿using System.Threading.Tasks;
+using IdentityService.Core.Common.Interfaces;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
-using System.Threading.Tasks;
 
 namespace IdentityService.Infrastructure.Persistence
 {
@@ -17,7 +18,7 @@ namespace IdentityService.Infrastructure.Persistence
 
         public async Task SeedAsync()
         {
-            //await _context.Database.MigrateAsync().ConfigureAwait(false);
+            await _context.Database.MigrateAsync().ConfigureAwait(false);
         }
     }
 }

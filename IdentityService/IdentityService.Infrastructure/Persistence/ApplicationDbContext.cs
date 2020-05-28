@@ -1,15 +1,18 @@
-﻿using IdentityService.Core.Common;
-using IdentityService.Core.Common.Interfaces;
-using IdentityService.Core.Interfaces;
-using Microsoft.EntityFrameworkCore;
+﻿using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
 using System.Threading.Tasks;
+using IdentityService.Core.Common;
+using IdentityService.Core.Common.Interfaces;
+using IdentityService.Core.Entities.Identity;
+using IdentityService.Core.Interfaces;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 
 namespace IdentityService.Infrastructure.Persistence
 {
-    public class ApplicationDbContext : DbContext, IApplicationDbContext
+    public class ApplicationDbContext : IdentityDbContext<User, Role, Guid, UserClaim, UserRole, UserLogin, RoleClaim, UserToken>, IApplicationDbContext
     {
         private readonly IDomainEventDispatcher _dispatcher;
 
@@ -18,21 +21,25 @@ namespace IdentityService.Infrastructure.Persistence
             _dispatcher = dispatcher;
         }
 
-        //public DbSet<Entity> Entity { get; set; }
+        public virtual DbSet<GroupPolicy> GroupPolicies { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            //builder.ApplyAllConfigurationsFromCurrentAssembly();
+            if (modelBuilder is null)
+                throw new ArgumentNullException(nameof(modelBuilder));
 
-            // alternately this is built-in to EF Core 2.2
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+            base.OnModelCreating(modelBuilder);
 
-            foreach (var relationship in builder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
+            // using Ardalis.EFCore.Extensions;
+            //modelBuilder.ApplyAllConfigurationsFromCurrentAssembly();
+
+            // built-in extension in EF Core > 2.2 AutoDiscovery and registers each one automatically.
+            modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            foreach (var relationship in modelBuilder.Model.GetEntityTypes().SelectMany(e => e.GetForeignKeys()))
             {
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
             }
-
-            base.OnModelCreating(builder);
         }
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
