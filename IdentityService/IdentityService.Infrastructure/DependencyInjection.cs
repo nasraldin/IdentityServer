@@ -20,7 +20,7 @@ namespace IdentityService.Infrastructure
             services.AddScoped<IDomainEventDispatcher>(provider => provider.GetService<DomainEventDispatcher>());
 
             // DB Seeding
-            services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
+            //services.AddTransient<IDatabaseInitializer, DatabaseInitializer>();
 
             return services;
         }
