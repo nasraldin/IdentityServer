@@ -1,4 +1,4 @@
- <img align="left"  height="116" src="https://neelbhatt40.files.wordpress.com/2018/02/id21.jpg" />
+ <img align="left"  height="116" src="https://github.com/nasraldin/IdentityServer/blob/dev/Docs/id4core.jpg" />
  
  # Open source Identity as a Microservice
 [![Twitter Follow](https://img.shields.io/twitter/follow/nasraldin_.svg?style=social&label=Follow)](https://twitter.com/_nasraldin)
