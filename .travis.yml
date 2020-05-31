@@ -4,8 +4,7 @@ dotnet: 3.1.300
 solution: ./IdentityService/IdentityService.sln
 
 install:
-  - dotnet restore ./IdentityService/IdentityService.sln
-  - sudo curl -o /usr/local/bin/nuget.exe https://dist.nuget.org/win-x86-commandline/latest/nuget.exe
+  - sudo apt install nuget
   - sudo nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 
 script:
