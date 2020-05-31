@@ -3,23 +3,23 @@ mono: none
 dotnet: 3.1.300
 solution: ./IdentityService/IdentityService.sln
 
-# install:
-#   - dotnet restore ./IdentityService/IdentityService.sln
-#   - nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+install:
+  - dotnet restore ./IdentityService/IdentityService.sln
+  - sudo nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
 
 script:
   - dotnet restore ./IdentityService/IdentityService.sln
-  # - dotnet build ./IdentityService/IdentityService.sln -c Release
-  - dotnet test ./IdentityService/IdentityService.UnitTests.csproj;
-  # - msbuild /p:Configuration=Release IdentityService.sln
-  # - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./IdentityService.UnitTests/bin/Release/IdentityService.UnitTests.dll
+  - dotnet build ./IdentityService/IdentityService.sln -c Release
+  - dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj;
+  - msbuild /p:Configuration=Release ./IdentityService/IdentityService.sln
+  - mono ./testrunner/xunit.runners.1.9.2/tools/xunit.console.clr4.exe ./IdentityService/IdentityService.UnitTests/bin/Release/IdentityService.UnitTests.dll
 
-# deploy:
-#   skip_cleanup: true # this allows to reuse your previous build command results for your nuget package
-#   provider: script
-#   script: chmod +x ./deploy.sh
-#   on:
-#     branch: dev
+deploy:
+  skip_cleanup: true # this allows to reuse your previous build command results for your nuget package
+  provider: script
+  script: chmod +x ./deploy.sh
+  on:
+    branch: dev
 
 jobs:
   include:

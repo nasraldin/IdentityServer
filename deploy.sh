@@ -7,7 +7,7 @@ if [ $? -eq 0 ]
 then
         if [ "$BUILD_CONFIG" = "debug" ]; 
         then
-                dotnet test ./IdentityService.UnitTests/IdentityService.UnitTests.csproj -v normal --no-build
+                dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj -v normal --no-build
         else
                 echo Skip testing on non-debug build
         fi
