@@ -14,7 +14,7 @@ variables:
   workingDirectory: './IdentityService'
 
 steps:
-- script: dotnet build --configuration $(workingDirectory) $(buildConfiguration)
+- script: dotnet build $(workingDirectory) --configuration $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
