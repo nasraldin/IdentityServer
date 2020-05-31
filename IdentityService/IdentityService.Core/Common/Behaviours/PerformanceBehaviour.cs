@@ -1,9 +1,18 @@
-﻿using IdentityService.Core.Common.Interfaces;
-using MediatR;
-using Microsoft.Extensions.Logging;
+﻿//  <copyright file="PerformanceBehaviour.cs" project="Core" solution="IdentityService">
+//      Copyright (c) 2020 Nasr Aldin.  All rights reserved.
+//      Licensed under the MIT License, See LICENSE in the project root for license information.
+//  </copyright>
+//  <author>Nasr Aldin</author>
+//  <email>nasr2ldin@gmail.com</email>
+//  <github>https://github.com/nasraldin/IdentityServer</github>
+//  <date>31/05/2020 01:00 AM</date>
+
 using System.Diagnostics;
 using System.Threading;
 using System.Threading.Tasks;
+using IdentityService.Core.Common.Interfaces;
+using MediatR;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityService.Core.Common.Behaviours
 {
@@ -37,8 +46,8 @@ namespace IdentityService.Core.Common.Behaviours
 
             if (elapsedMilliseconds > 500)
             {
-                string userId = _currentUserService.UserId ?? string.Empty;
-                string userName = string.Empty;
+                var userId = _currentUserService.UserId ?? string.Empty;
+                var userName = string.Empty;
 
                 if (!string.IsNullOrEmpty(userId))
                     userName = await _identityService.GetUserNameAsync(userId);

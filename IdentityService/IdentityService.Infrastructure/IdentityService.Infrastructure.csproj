@@ -7,8 +7,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Migrations\20200528173741_init.cs" />
-    <Compile Remove="Migrations\20200528173741_init.Designer.cs" />
     <Compile Remove="StartupSetup.cs" />
   </ItemGroup>
 

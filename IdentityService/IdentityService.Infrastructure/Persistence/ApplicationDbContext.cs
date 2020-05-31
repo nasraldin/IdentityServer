@@ -1,4 +1,13 @@
-﻿using System;
+﻿//  <copyright file="ApplicationDbContext.cs" project="Infrastructure" solution="IdentityService">
+//      Copyright (c) 2020 Nasr Aldin.  All rights reserved.
+//      Licensed under the MIT License, See LICENSE in the project root for license information.
+//  </copyright>
+//  <author>Nasr Aldin</author>
+//  <email>nasr2ldin@gmail.com</email>
+//  <github>https://github.com/nasraldin/IdentityServer</github>
+//  <date>31/05/2020 01:00 AM</date>
+
+using System;
 using System.Linq;
 using System.Reflection;
 using System.Threading;
@@ -44,7 +53,7 @@ namespace IdentityService.Infrastructure.Persistence
 
         public override async Task<int> SaveChangesAsync(CancellationToken cancellationToken = new CancellationToken())
         {
-            int result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
+            var result = await base.SaveChangesAsync(cancellationToken).ConfigureAwait(false);
 
             // ignore events if no dispatcher provided
             if (_dispatcher == null) return result;
