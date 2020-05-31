@@ -1,16 +1,49 @@
+version: "1.0.{build}"
 image: Visual Studio 2019
+branches:
+  only:
+    - dev
+init:
+  # Good practise, because Windows line endings are different from Unix/Linux ones
+  - cmd: git config --global core.autocrlf true
 
-before_build:
-  - dotnet restore ./IdentityService/IdentityService.sln
-  - dotnet build ./IdentityService/IdentityService.sln
-  - dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj
+install:
+  # Install repo specific stuff here
   - choco install opencover.portable
   - choco install codecov
+
+before_build:
+  - cmd: dotnet --version # Display .NET Core version
+  - dotnet restore ./IdentityService/IdentityService.sln --verbosity m # Display minimal restore text
+  - dotnet build ./IdentityService/IdentityService.sln
+  - dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj
 
 build:
   project: ./IdentityService/IdentityService.sln
   verbosity: minimal
 
+build_script:
+  # output will be in ./src/bin/debug/netcoreapp1.1/publish
+  - cmd: dotnet publish ./src/src.csproj
+
+# after_build:
+# For once the build has completed
+# artifacts:
+#   - path: '\src\bin\Debug\netcoreapp1.1\publish'
+#     name: WebApi
+#     type: WebDeployPackage
+
+clone_depth: 1
 test_script:
+  # restore packages for our unit tests
+  - cmd: dotnet restore ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj --verbosity m
+  # run the unit tests (requires changing into the test directory)
+  - cmd: cd ./IdentityService/IdentityService.UnitTests
+  - cmd: dotnet xunit
   - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:test -filter:"+[UnitTestTargetProject*]* -[IdentityService*]*" -output:".\IdentityService_coverage.xml"
   - codecov -f "IdentityService_coverage.xml"
+
+# on_finish:
+# any cleanup in here
+
+deploy: off
