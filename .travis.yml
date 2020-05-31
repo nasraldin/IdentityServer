@@ -6,7 +6,7 @@ solution: ./IdentityService/IdentityService.sln
 script:
   - dotnet restore ./IdentityService/IdentityService.sln
   - dotnet build ./IdentityService/IdentityService.sln -c Release
-  - dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj;
+  - dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj
 
 deploy:
   skip_cleanup: true # this allows to reuse your previous build command results for your nuget package

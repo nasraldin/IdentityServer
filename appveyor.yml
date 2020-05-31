@@ -1,9 +1,9 @@
 image: Visual Studio 2019
 
 before_build:
-  - dotnet restore
-  - dotnet build
-  - dotnet test
+  - dotnet restore ./IdentityService/IdentityService.sln
+  - dotnet build ./IdentityService/IdentityService.sln
+  - dotnet test ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj
   - choco install opencover.portable
   - choco install codecov
 
