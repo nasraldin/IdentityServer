@@ -1,6 +1,9 @@
  <img align="left"  height="116" src="https://github.com/nasraldin/IdentityServer/blob/dev/Docs/id4core.jpg" />
  
  # Open source Identity as a Microservice
+[![Build Status](https://dev.azure.com/nasreldin/IdentityServer/_apis/build/status/nasraldin.IdentityServer?branchName=dev)](https://dev.azure.com/nasreldin/IdentityServer/_build/latest?definitionId=1&branchName=dev)
+ [![Build Status](https://travis-ci.com/nasraldin/IdentityServer.svg?branch=dev)](https://travis-ci.com/nasraldin/IdentityServer)
+ [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nasraldin_IdentityServer&metric=alert_status)](https://sonarcloud.io/dashboard?id=nasraldin_IdentityServer)
 [![Twitter Follow](https://img.shields.io/twitter/follow/nasraldin_.svg?style=social&label=Follow)](https://twitter.com/_nasraldin)
 
 
