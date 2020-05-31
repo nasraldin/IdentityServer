@@ -5,7 +5,7 @@ solution: ./IdentityService/IdentityService.sln
 script:
   - dotnet restore ./IdentityService/IdentityService.sln
   - dotnet build ./IdentityService/IdentityService.sln
-  - dotnet test ./IdentityService/IdentityService..UnitTests.csproj;
+  - dotnet test ./IdentityService/IdentityService.UnitTests.csproj;
 jobs:
   include:
     - os: linux
