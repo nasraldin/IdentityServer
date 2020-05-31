@@ -11,15 +11,16 @@ pool:
 
 variables:
   buildConfiguration: 'Release'
+  workingDirectory: './IdentityService'
 
 steps:
-- script: dotnet build --configuration $(buildConfiguration)
+- script: dotnet build --configuration $(workingDirectory) $(buildConfiguration)
   displayName: 'dotnet build $(buildConfiguration)'
 
 - task: DotNetCoreCLI@2
   inputs:
     command: 'restore'
-    projects: './IdentityService/IdentityService.sln'
+    projects: '$(workingDirectory)/IdentityService.sln'
     feedsToUse: 'select'
 - task: DotNetCoreCLI@2
   inputs:
