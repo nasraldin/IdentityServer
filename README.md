@@ -1,6 +1,7 @@
  <img align="left"  height="116" src="https://github.com/nasraldin/IdentityServer/blob/dev/Docs/id4core.jpg" />
  
  # Open source Identity as a Microservice
+ [![Build Status](https://travis-ci.com/nasraldin/IdentityServer.svg?branch=dev)](https://travis-ci.com/nasraldin/IdentityServer)
 [![Twitter Follow](https://img.shields.io/twitter/follow/nasraldin_.svg?style=social&label=Follow)](https://twitter.com/_nasraldin)
 
 
