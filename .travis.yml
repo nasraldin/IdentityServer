@@ -5,7 +5,7 @@ solution: ./IdentityService/IdentityService.sln
 
 install:
   - sudo apt install nuget
-  - sudo nuget install xunit.runners -Version 1.9.2 -OutputDirectory testrunner
+  - sudo nuget install xunit.runners -OutputDirectory testrunner
 
 script:
   - dotnet restore ./IdentityService/IdentityService.sln
