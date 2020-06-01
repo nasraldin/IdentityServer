@@ -3,10 +3,9 @@
  # Open source Identity as a Microservice
 [![Build Status](https://dev.azure.com/nasreldin/IdentityServer/_apis/build/status/nasraldin.IdentityServer?branchName=dev)](https://dev.azure.com/nasreldin/IdentityServer/_build/latest?definitionId=1&branchName=dev)
  [![Build Status](https://travis-ci.com/nasraldin/IdentityServer.svg?branch=dev)](https://travis-ci.com/nasraldin/IdentityServer)
+ [![Build status](https://ci.appveyor.com/api/projects/status/inu5ud3soeu1ao8r?svg=true)](https://ci.appveyor.com/project/nasraldin/identityserver)
  [![CircleCI](https://circleci.com/gh/nasraldin/IdentityServer.svg?style=svg)](https://circleci.com/gh/nasraldin/IdentityServer)
 [![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=nasraldin_IdentityServer&metric=alert_status)](https://sonarcloud.io/dashboard?id=nasraldin_IdentityServer)
-[![Twitter Follow](https://img.shields.io/twitter/follow/nasraldin_.svg?style=social&label=Follow)](https://twitter.com/_nasraldin)
-
 
 <br/>
 
