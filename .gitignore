@@ -351,3 +351,6 @@ MigrationBackup/
 
 # You don’t have to check that file into your source control, IdentityServer will create a developer signing key for you
 tempkey.rsa
+
+# ReportGenerator is a Code Coverage Tool
+coverage/coveragereport

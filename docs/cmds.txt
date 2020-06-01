@@ -5,6 +5,12 @@ OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe
 codecov -f "IdentityService_coverage.xml" -t aafe1179-9f3b-4176-aa82-2d9f5774732a
 
 
+https://danielpalme.github.io/ReportGenerator/usage.html
+
+dotnet tool install --global dotnet-reportgenerator-globaltool --version 4.6.0
+
+reportgenerator "-reports:./coverage/OpenCover.xml" "-targetdir:./coverage/coveragereport" -reporttypes:HtmlInline_AzurePipelines
+
 .env
 CODECOV_TOKEN="aafe1179-9f3b-4176-aa82-2d9f5774732a"
 
