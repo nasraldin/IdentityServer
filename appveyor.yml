@@ -9,6 +9,7 @@ init:
 
 install:
   # Install repo specific stuff here
+  - ps: ./downloadDotNetCore3.1.ps1
   - choco install opencover.portable
   - choco install codecov
 
