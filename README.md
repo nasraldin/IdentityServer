@@ -1,4 +1,4 @@
- <img align="left"  height="116" src="https://github.com/nasraldin/IdentityServer/blob/dev/Docs/id4core.jpg" />
+ <img align="left"  height="116" src="https://github.com/nasraldin/IdentityServer/blob/dev/docs/id4core.jpg" />
  
  # Open source Identity as a Microservice
 [![Build Status](https://dev.azure.com/nasreldin/IdentityServer/_apis/build/status/nasraldin.IdentityServer?branchName=dev)](https://dev.azure.com/nasreldin/IdentityServer/_build/latest?definitionId=1&branchName=dev)
