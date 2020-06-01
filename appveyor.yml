@@ -40,7 +40,7 @@ test_script:
   - cmd: dotnet restore ./IdentityService/IdentityService.UnitTests/IdentityService.UnitTests.csproj --verbosity m
   # run the unit tests (requires changing into the test directory)
   - cmd: cd ./IdentityService/IdentityService.UnitTests
-  - cmd: dotnet xunit
+  - cmd: dotnet test
   - OpenCover.Console.exe -register:user -target:"%xunit20%\xunit.console.x86.exe" -targetargs:test -filter:"+[UnitTestTargetProject*]* -[IdentityService*]*" -output:".\IdentityService_coverage.xml"
   - codecov -f "IdentityService_coverage.xml"
 
