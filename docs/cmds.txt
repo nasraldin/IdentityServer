@@ -1,8 +1,9 @@
 
 generate xml report for codecov
 cd projectPath\IdentityService\
-OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[UnitTestTargetProject*]* -[IdentityService*]*" -output:".\IdentityService_coverage.xml" -oldstyle
-codecov -f "IdentityService_coverage.xml" -t aafe1179-9f3b-4176-aa82-2d9f5774732a
+C:\opencover.4.7.922\OpenCover.Console.exe -register:user -target:"C:/Program Files/dotnet/dotnet.exe" -targetargs:test -filter:"+[UnitTestTargetProject*]* -[IdentityService*]*" -output:"../coverage/OpenCover.xml" -oldstyle
+
+codecov -f "../coverage/OpenCover.xml" -t aafe1179-9f3b-4176-aa82-2d9f5774732a
 
 
 https://danielpalme.github.io/ReportGenerator/usage.html
